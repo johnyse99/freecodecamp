@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de encuesta</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title">freeCustomerCorp Surver Form</h1>
+    <p id="description">Thank you for helping us improve our services.</p>
+
+    <form id="survey-form" action="">
+      <label id="name-label">Name</label>
+      <input id="name" type="text" placeholder="Enter your name." required />
+
+      <label id="email-label">Email</label>
+      <input id="email" type="email" placeholder="Enter your email." required />
+
+      <label id="number-label">Age</label>
+      <input id="number" type="number" min="18" max="120" placeholder="Age." />
+
+      <label id="dropdown-label" class="label">Which option best describes daily activity?</label>
+      <select id="dropdown">
+        <option value="">Select an option</option>
+        <option value="">Study</option>
+        <option value="">Work</option>
+        <option value="">No comments</option>
+        <option value="">Other</option>
+      </select>
+
+      <label id="radio-label" class="label">How likely are you to recommend freeCustomerCorp to your friends and family?</label>
+      <label id="radio-recommend"><input class="inline" name="radio-recommend" type="radio" value="likely">Very likely.</label>
+      <label id="radio-recommend"><input class="inline" name="radio-recommend" type="radio" value="unlikely">Unlikely.</label>
+      <label id="radio-recommend"><input class="inline" name="radio-recommend" type="radio" value="never">Never.</label>
+
+      <label id="checkbox-label" class="label">Which option best describes what you think about freeCustomerCorp?</label>
+      <label id="checkbox-features"><input class="inline" name="checkbox-features" type="checkbox" value="excellent">Excellent service.</label>
+      <label id="checkbox-features"><input class="inline" name="checkbox-features" type="checkbox" value="good">Good service.</label>
+      <label id="checkbox-features"><input class="inline" name="checkbox-features" type="checkbox" value="bad">Bad service.</label>
+
+      <label id="comments-label" class="label">Comments or suggestions</label>
+      <textarea name="comments" id="comments" placeholder="Enter your comments or suggestion here."></textarea>
+
+      <input id="submit" name="submit" type="submit" value="Submit">
+
+    </form>
+  </body>
+</html>
