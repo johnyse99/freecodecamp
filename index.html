@@ -1,21 +1,324 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dev Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        :root {
+            --section-1: #f8f9fa;
+            --section-2: #fff5f7;
+            --section-3: #f3f9ff;
+            --section-4: #fafff3;
+            --accent-1: #6c757d;
+            --accent-2: #e83e8c;
+            --accent-3: #3d8bfd;
+            --accent-4: #75b798;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: #495057;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 20px 50px;
+            background: rgba(255, 255, 255, 0.9);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #6c757d;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(108, 117, 125, 0.1);
+            color: var(--accent-1);
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 100px 20%;
+            display: flex;
+            align-items: center;
+        }
+
+        #home {
+            background: var(--section-1);
+            flex-direction: column;
+            text-align: center;
+            gap: 20px;
+        }
+
+        #about {
+            background: var(--section-2);
+            gap: 50px;
+        }
+
+        #portfolio {
+            background: var(--section-3);
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        #contact {
+            background: var(--section-4);
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* Home Section */
+        #home h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--accent-1);
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+
+        .cta-btn {
+            padding: 15px 40px;
+            background: var(--accent-1);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+        }
+
+        /* About Section */
+        .profile-img {
+            width: 300px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(232, 62, 140, 0.1);
+        }
+
+        #about h2 {
+            color: var(--accent-2);
+        }
+
+        /* Portfolio Section */
+        #portfolio h2 {
+            color: var(--accent-3);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(61, 139, 253, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(61, 139, 253, 0.2);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Contact Section */
+        #contact h2 {
+            color: var(--accent-4);
+        }
+
+        .contact-form {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            color: #495057;
+            transition: 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--accent-4);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(117, 183, 152, 0.1);
+        }
+
+        button[type="submit"] {
+            background: var(--accent-4);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(117, 183, 152, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 100px 20px;
+            }
+
+            #about {
+                flex-direction: column;
+            }
+
+            .profile-img {
+                width: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>PERSONAL PORTFOLIO</h1>
-    </header>
-    <main>
-        <a href="001-landing-pages/">LANDING PAGES</a>
-        <a href="002-survey-form/">SURVEY FORM</a>
-        <a href="003-tribute-page/">TRIBUTE PAGE</a>
-        <a href="004-personal-portfolio-webpage/">PERSONAL PORTFOLIO WEBPAGE</a>
-        <a href="005-technical-documentation-page/">TECHNICAL DOCUMENTATION PAGE</a>
-    </main>
-    <footer>DESIGN JOHNYSE99</footer>
+    <nav>
+        <div class="logo">PERSONAL PORTFOLIO</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        <h1>Hi, I'm Johnyse99</h1>
+        <p>Web Developer</p>
+        <a href="#portfolio" class="cta-btn">View My Work</a>
+    </section>
+
+    <section id="about">
+        <img src="https://via.placeholder.com/300" alt="Profile" class="profile-img">
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>Passionate web developer with 5+ years of experience creating modern and responsive web applications.</p>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>My Work in freeCodeCamp</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Project" class="project-img">
+                <a href="001-landing-pages/index.html"><h3>Landing Pages</h3></a>
+                <p>Modern webpage built with HTML and CSS</p>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Project" class="project-img">
+                <a href="002-survey-form/index.html"><h3>Surver Form</h3></a>
+                <p>Modern webpage built with HTML and CSS</p>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Project" class="project-img">
+                <a href="003-tribute-page/index.html"><h3>Tribute Page</h3></a>
+                <p>Modern webpage built with HTML and CSS</p>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Project" class="project-img">
+                <a href="004-personal-portfolio-webpage/index.html"><h3>Personal Portfolio Webpage</h3></a>
+                <p>Modern webpage built with HTML and CSS</p>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Project" class="project-img">
+                <a href="005-technical-documentation-page/index.html"><h3>Technical Documentation Page</h3></a>
+                <p>Modern webpage built with HTML and CSS</p>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Project" class="project-img">
+                <a href="#"><h3>Your Webpage</h3></a>
+                <p>Modern webpage built with HTML and CSS</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <input type="text" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
 </body>
 </html>
